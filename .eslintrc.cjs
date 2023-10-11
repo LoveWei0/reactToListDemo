@@ -26,7 +26,7 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: ['@typescript-eslint', 'react'],
-  rules: {},
+  rules: { 'no-unused-vars': 'error' },
   settings: {
     react: {
       version: '18.2.0'
