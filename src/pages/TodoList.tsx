@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button } from 'antd'
+import { Button, Input } from 'antd'
 
 export default function TodoList() {
   const [inputValue, setInputValue] = useState('')
@@ -25,14 +25,15 @@ export default function TodoList() {
       </h3>
       <hr />
       <div className="flex">
-        <input
+        <Input
           type="text"
           value={inputValue}
           onChange={handleChange}
-          style={{ height: '25px' }}
+          className="h-8"
+          style={{ width: 400 }}
         />
         <div>
-          <Button className="left-2" onClick={handleClick}>
+          <Button className="h-8 left-2" onClick={handleClick}>
             提交
           </Button>
         </div>
