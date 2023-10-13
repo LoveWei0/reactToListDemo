@@ -16,5 +16,14 @@ export default defineConfig({
       '@style': join(__dirname, 'src/style'),
       '@utils': join(__dirname, 'src/utils')
     }
+  },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://127.0.0.1:4523/m1/2917686-0-default',
+        changeOrigin: true,
+        rewrite: path => path.replace(/^\/api/, '')
+      }
+    }
   }
 })

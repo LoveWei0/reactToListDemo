@@ -3,7 +3,7 @@ import axios from 'axios'
 import { message } from 'antd'
 
 const http = axios.create({
-  baseURL: '/api',
+  baseURL: import.meta.env.VITE_APP_URL,
   timeout: 6000
 })
 
