@@ -26,7 +26,8 @@
       "@store/*": ["src/store/*"],
       "@pages/*": ["src/pages/*"],
       "@app/*": ["src/app/*"],
-      "@style/*": ["src/style/*"]
+      "@style/*": ["src/style/*"],
+      "@utils/*": ["src/utils/*"]
     }
   },
   "include": ["src"],
