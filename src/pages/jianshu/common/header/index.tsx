@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import homeImage from '@/image/header-home.png'
 // css
 import './index.css'
+// 动画库
+import { CSSTransition } from 'react-transition-group'
 
 export default function Header() {
   const [inputFocus, setInputFocus] = useState<boolean>(true)
@@ -28,13 +30,15 @@ export default function Header() {
               <span>下载App</span>
             </div>
             <div className="nav-item header_center-left-search">
-              <input
-                type="text"
-                placeholder="搜索"
-                className={inputFocus ? 'input-nor-active' : 'input-active'}
-                onFocus={searchFocusOrBlur}
-                onBlur={searchFocusOrBlur}
-              />
+              <CSSTransition in={inputFocus} timeout={200} classNames="slide">
+                <input
+                  type="text"
+                  placeholder="搜索"
+                  className={inputFocus ? 'input-nor-active' : 'input-active'}
+                  onFocus={searchFocusOrBlur}
+                  onBlur={searchFocusOrBlur}
+                />
+              </CSSTransition>
               <i
                 className={
                   inputFocus

@@ -37,6 +37,21 @@ header {
   position: relative;
 }
 
+/* 动画开始 */
+.slide-enter {
+  transition: all 0.2s ease-out;
+}
+.slide-enter-active {
+  width: 280px;
+}
+.slide-exit {
+  transition: all 0.2s ease-out;
+}
+.slide-exit-active {
+  width: 240px;
+}
+/* 动画结束 */
+
 .header_center-left-search input {
   width: 240px;
   padding: 0 40px 0 20px;
