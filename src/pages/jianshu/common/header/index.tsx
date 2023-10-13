@@ -1,16 +1,23 @@
-import React, { useState } from 'react'
+import React, { useRef, useEffect } from 'react'
 // images
 import homeImage from '@/image/header-home.png'
 // css
 import './index.css'
 // 动画库
 import { CSSTransition } from 'react-transition-group'
+// redux -> data
+import { searchFocusOrBlur, selectInputFocus } from '@store/headerSlice'
+// hooks
+import { useAppDispatch, useAppSelector } from '@app/hooks'
 
 export default function Header() {
-  const [inputFocus, setInputFocus] = useState<boolean>(true)
-  const searchFocusOrBlur = () => {
-    setInputFocus(!inputFocus)
-  }
+  const inputRef = useRef(null)
+  const inputFocus = useAppSelector(selectInputFocus)
+  const dispatch = useAppDispatch()
+  useEffect(() => {
+    const input = inputRef.current
+    input.select()
+  }, [])
   return (
     <>
       <header>
@@ -30,13 +37,19 @@ export default function Header() {
               <span>下载App</span>
             </div>
             <div className="nav-item header_center-left-search">
-              <CSSTransition in={inputFocus} timeout={200} classNames="slide">
+              <CSSTransition
+                in={inputFocus}
+                timeout={200}
+                classNames="slide"
+                nodeRef={inputRef}
+              >
                 <input
+                  ref={inputRef}
                   type="text"
                   placeholder="搜索"
                   className={inputFocus ? 'input-nor-active' : 'input-active'}
-                  onFocus={searchFocusOrBlur}
-                  onBlur={searchFocusOrBlur}
+                  onFocus={() => dispatch(searchFocusOrBlur())}
+                  onBlur={() => dispatch(searchFocusOrBlur())}
                 />
               </CSSTransition>
               <i
