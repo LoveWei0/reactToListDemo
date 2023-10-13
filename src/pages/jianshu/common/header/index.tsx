@@ -11,12 +11,14 @@ import { searchFocusOrBlur, selectInputFocus } from '@store/headerSlice'
 import { useAppDispatch, useAppSelector } from '@app/hooks'
 
 export default function Header() {
-  const inputRef = useRef(null)
+  const inputRef = useRef<HTMLInputElement>(null)
   const inputFocus = useAppSelector(selectInputFocus)
   const dispatch = useAppDispatch()
   useEffect(() => {
     const input = inputRef.current
-    input.select()
+    if (input) {
+      input.select()
+    }
   }, [])
   return (
     <>
