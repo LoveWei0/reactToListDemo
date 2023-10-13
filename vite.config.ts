@@ -12,7 +12,8 @@ export default defineConfig({
       '@': join(__dirname, 'src'),
       '@store': join(__dirname, 'src/store'),
       '@pages': join(__dirname, 'src/pages'),
-      '@app': join(__dirname, 'src/app')
+      '@app': join(__dirname, 'src/app'),
+      '@style': join(__dirname, 'src/style')
     }
   }
 })
