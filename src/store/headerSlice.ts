@@ -14,7 +14,8 @@ const headerSlice = createSlice({
   initialState,
   reducers: {
     searchFocusOrBlur(state) {
-      state.inputFocus = !state.inputFocus
+      const newState = JSON.parse(JSON.stringify(state))
+      state.inputFocus = !newState.inputFocus
     }
   }
 })

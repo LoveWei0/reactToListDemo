@@ -7,11 +7,13 @@ header {
   align-items: center;
 }
 
+/* 头部左边 */
 .header_left-img {
   width: 100px;
   height: 56px;
 }
 
+/* 头部中间 */
 .header_center {
   width: 1000px;
   margin: 0 auto;
@@ -25,6 +27,7 @@ header {
   align-items: center;
 }
 
+/* 头部中间左边 */
 .header_center-left {
   display: flex;
 }
@@ -50,8 +53,8 @@ header {
 .slide-exit-active {
   width: 240px;
 }
-/* 动画结束 */
 
+/* 动画结束 */
 .header_center-left-search input {
   width: 240px;
   padding: 0 40px 0 20px;
@@ -81,6 +84,77 @@ header {
 
 .header_center-left .header_center-left-search .icon-active:hover {
   cursor: pointer;
+}
+
+.header_center-left
+  .header_center-left-search
+  .header_center-left-hot-search::before {
+  content: '';
+  left: 27px;
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg);
+  top: -5px;
+  z-index: -1;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.header_center-left .header_center-left-search .header_center-left-hot-search {
+  position: absolute;
+  width: 250px;
+  left: 0;
+  top: 125%;
+  padding: 15px;
+  font-size: 14px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.header_center-left
+  .header_center-left-search
+  .header_center-left-hot-search
+  .header_center-left-hot-search-title {
+  display: flex;
+  justify-content: space-between;
+  color: #969696;
+}
+
+.header_center-left
+  .header_center-left-search
+  .header_center-left-hot-search
+  .icon-change {
+  display: inline-block;
+  width: 20px;
+  height: 14px;
+  margin-right: 44px;
+  margin-top: 10px;
+  background: url('@/image/icon-change.png') no-repeat center;
+  background-size: 100%;
+}
+
+.header_center-left
+  .header_center-left-search
+  .header_center-left-hot-search
+  .icon-change:hover {
+  cursor: pointer;
+}
+
+.header_center-left
+  .header_center-left-search
+  .header_center-left-hot-search
+  .header_center-left-hot-search-content
+  span {
+  display: inline-block;
+  margin-top: 10px;
+  margin-right: 10px;
+  padding: 2px 6px;
+  font-size: 12px;
+  color: #787878;
+  border: 1px solid #ddd;
+  border-radius: 3px;
 }
 
 .header_center-right {

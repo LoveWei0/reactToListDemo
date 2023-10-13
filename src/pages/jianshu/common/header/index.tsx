@@ -61,6 +61,29 @@ export default function Header() {
                     : 'icon icon-search icon-active'
                 }
               ></i>
+              {/* 热搜模块 */}
+              <div
+                className={
+                  inputFocus
+                    ? 'display-hide header_center-left-hot-search'
+                    : 'display-show header_center-left-hot-search'
+                }
+              >
+                <div className="header_center-left-hot-search-title">
+                  <span>热门搜索</span>
+                  <span>
+                    <i className="icon-change"></i>
+                    <span>换一批</span>
+                  </span>
+                </div>
+                <div className="header_center-left-hot-search-content">
+                  <span>考研</span>
+                  <span>慢死人</span>
+                  <span>悦心</span>
+                  <span>一致</span>
+                  <span>是的</span>
+                </div>
+              </div>
             </div>
           </div>
           <div className="header_center-right">
