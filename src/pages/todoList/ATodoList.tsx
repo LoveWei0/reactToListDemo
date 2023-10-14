@@ -2,9 +2,9 @@
 import React from 'react'
 import { Input, Button, List } from 'antd'
 // 全局hooks
-import { useAppSelector, useAppDispatch } from '../app/hooks'
+import { useAppSelector, useAppDispatch } from '../../app/hooks'
 // redux -> data
-import { selectCount, selectInputValue } from '../store/counterSlice'
+import { selectCount, selectInputValue } from '../../store/counterSlice'
 // redux -> action
 import { handleChange, handleClick, handleDelete } from '@store/counterSlice'
 
