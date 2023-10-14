@@ -14,11 +14,13 @@ import { configureStore } from '@reduxjs/toolkit'
 // slice小文件
 import counterSlice from './counterSlice'
 import headerSlice from './headerSlice'
+import leftListSlice from './leftListSlice'
 
 const store = configureStore({
   reducer: {
     counter: counterSlice,
-    header: headerSlice
+    header: headerSlice,
+    leftList: leftListSlice
   }
 })
 
