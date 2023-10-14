@@ -5,6 +5,10 @@ header {
   border-bottom: 1px solid #ccc;
   display: flex;
   align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
 }
 
 /* 头部左边 */
@@ -52,6 +56,10 @@ header {
 }
 .slide-exit-active {
   width: 240px;
+}
+
+.header_center-left-search {
+  z-index: 999;
 }
 
 /* 动画结束 */
