@@ -8,11 +8,15 @@ import '@style/common.css'
 import { Provider } from 'react-redux'
 // store
 import store from './store/index.ts'
+// react-router-dom
+import { HashRouter } from 'react-router-dom'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <HashRouter>
+        <App />
+      </HashRouter>
     </Provider>
   </React.StrictMode>
 )
