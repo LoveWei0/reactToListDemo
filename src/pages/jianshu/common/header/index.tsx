@@ -14,7 +14,10 @@ import {
   selectInputFocus,
   selectMouseInHot,
   selectList,
-  GetHeaderList
+  selectPage,
+  selectTotalPage,
+  GetHeaderList,
+  changePage
 } from '@store/headerSlice'
 // hooks
 import { useAppDispatch, useAppSelector } from '@app/hooks'
@@ -34,6 +37,16 @@ export default function Header() {
   }, [])
   const lists = useAppSelector(selectList)
   const mouseInHot = useAppSelector(selectMouseInHot)
+  const page = useAppSelector(selectPage)
+  const totalPage = useAppSelector(selectTotalPage)
+  const handlePage = (page: number, totalPage: number) => {
+    if (page === totalPage) {
+      page = 1
+      dispatch(changePage(page))
+    } else {
+      dispatch(changePage(page))
+    }
+  }
   return (
     <>
       <header>
@@ -87,14 +100,16 @@ export default function Header() {
               >
                 <div className="header_center-left-hot-search-title">
                   <span>热门搜索</span>
-                  <span>
+                  <span onClick={() => handlePage(page + 1, totalPage)}>
                     <i className="icon-change"></i>
                     <span>换一批</span>
                   </span>
                 </div>
                 <div className="header_center-left-hot-search-content">
-                  {lists.map(item => {
-                    return <span key={item}>{item}</span>
+                  {lists.map((item, index) => {
+                    if (index >= (page - 1) * 10 && index < page * 10) {
+                      return <span key={item}>{item}</span>
+                    }
                   })}
                 </div>
               </div>
