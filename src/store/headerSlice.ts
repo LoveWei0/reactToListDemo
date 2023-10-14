@@ -6,11 +6,13 @@ import { getHeaderList } from '@/api/headerList'
 interface HeaderState {
   inputFocus: boolean
   list: string[]
+  mouseInHot: boolean
 }
 
 const initialState: HeaderState = {
-  inputFocus: true,
-  list: []
+  inputFocus: false,
+  list: [],
+  mouseInHot: false
 }
 
 export const GetHeaderList = createAsyncThunk(
@@ -25,9 +27,18 @@ const headerSlice = createSlice({
   name: 'header',
   initialState,
   reducers: {
-    searchFocusOrBlur(state) {
-      const newState = JSON.parse(JSON.stringify(state))
-      state.inputFocus = !newState.inputFocus
+    searchFocus(state) {
+      // const newState = JSON.parse(JSON.stringify(state))
+      state.inputFocus = true
+    },
+    searchBlur(state) {
+      state.inputFocus = false
+    },
+    searchMouseEnterHot(state) {
+      state.mouseInHot = true
+    },
+    searchMouseLeaveHot(state) {
+      state.mouseInHot = false
     }
   },
   extraReducers: builder => {
@@ -38,9 +49,15 @@ const headerSlice = createSlice({
   }
 })
 
-export const { searchFocusOrBlur } = headerSlice.actions
+export const {
+  searchBlur,
+  searchFocus,
+  searchMouseEnterHot,
+  searchMouseLeaveHot
+} = headerSlice.actions
 
 export const selectInputFocus = (state: RootState) => state.header.inputFocus
+export const selectMouseInHot = (state: RootState) => state.header.mouseInHot
 export const selectList = (state: RootState) => state.header.list
 
 export default headerSlice.reducer

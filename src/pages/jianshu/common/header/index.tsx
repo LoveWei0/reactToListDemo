@@ -7,8 +7,12 @@ import './index.css'
 import { CSSTransition } from 'react-transition-group'
 // redux -> data
 import {
-  searchFocusOrBlur,
+  searchBlur,
+  searchFocus,
+  searchMouseEnterHot,
+  searchMouseLeaveHot,
   selectInputFocus,
+  selectMouseInHot,
   selectList,
   GetHeaderList
 } from '@store/headerSlice'
@@ -29,7 +33,7 @@ export default function Header() {
     dispatch(GetHeaderList())
   }, [])
   const lists = useAppSelector(selectList)
-  console.log(lists)
+  const mouseInHot = useAppSelector(selectMouseInHot)
   return (
     <>
       <header>
@@ -59,9 +63,9 @@ export default function Header() {
                   ref={inputRef}
                   type="text"
                   placeholder="搜索"
-                  className={inputFocus ? 'input-nor-active' : 'input-active'}
-                  onFocus={() => dispatch(searchFocusOrBlur())}
-                  onBlur={() => dispatch(searchFocusOrBlur())}
+                  className={inputFocus ? 'input-active' : 'input-nor-active'}
+                  onFocus={() => dispatch(searchFocus())}
+                  onBlur={() => dispatch(searchBlur())}
                 />
               </CSSTransition>
               <i
@@ -74,10 +78,12 @@ export default function Header() {
               {/* 热搜模块 */}
               <div
                 className={
-                  inputFocus
-                    ? 'display-hide header_center-left-hot-search'
-                    : 'display-show header_center-left-hot-search'
+                  mouseInHot || inputFocus
+                    ? 'display-show header_center-left-hot-search'
+                    : 'display-hide header_center-left-hot-search'
                 }
+                onMouseEnter={() => dispatch(searchMouseEnterHot())}
+                onMouseLeave={() => dispatch(searchMouseLeaveHot())}
               >
                 <div className="header_center-left-hot-search-title">
                   <span>热门搜索</span>
