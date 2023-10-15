@@ -2,6 +2,7 @@
 .container {
   width: 960px;
   margin: 0 auto;
+  background-color: orange;
 }
 
 .main-container {
@@ -127,4 +128,8 @@
   height: 1000px;
   margin-left: 15px;
   background-color: #fff;
+}
+
+.right-recommend div .right-recommend-border {
+  border-bottom: 1px solid #b4a4a4;
 }

@@ -11,7 +11,7 @@ export default function Home() {
     <>
       <div className="container">
         <TopNav />
-        <div className="main-container">
+        <div className="main-container" style={{ backgroundColor: 'pink' }}>
           <LeftList />
           <RightRecommend />
         </div>
