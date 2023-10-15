@@ -15,12 +15,14 @@ import { configureStore } from '@reduxjs/toolkit'
 import counterSlice from './counterSlice'
 import headerSlice from './headerSlice'
 import leftListSlice from './leftListSlice'
+import rightListSlice from './rightListSlice'
 
 const store = configureStore({
   reducer: {
     counter: counterSlice,
     header: headerSlice,
-    leftList: leftListSlice
+    leftList: leftListSlice,
+    rightList: rightListSlice
   }
 })
 

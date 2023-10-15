@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom'
 export default function LeftList() {
   const dispatch = useAppDispatch()
   const leftListData = useAppSelector(selectLeftList)
-  console.log(leftListData)
   useEffect(() => {
     dispatch(getLeftListData())
   }, [])
